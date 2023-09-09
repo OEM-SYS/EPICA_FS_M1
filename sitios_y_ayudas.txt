@@ -1,0 +1,84 @@
+REPOSITORIO DE LINKS Y AYUDAS PARA REALIZAR EL PROYECTO
+
+Responsive breakpoint
+=====================
+https://getbootstrap.com/docs/4.3/layout/overview/
+
+flex
+====
+https://getbootstrap.com/docs/4.3/utilities/flex/
+
+grid
+====
+https://getbootstrap.com/docs/4.3/layout/grid/
+
+github
+======
+configurar git
+--------------
+para ver la configuracion de git ejecutar:
+git config -l
+
+si hay que configurar git en linea de comandos ejecutar:
+git config --global user.name"OEM-SYS"
+git config --global user.email"eduardomarceloolivares@gmail.com"
+
+create a new repository on the command line
+-------------------------------------------
+echo "# EPICA_FS_M1" >> README.md
+git init
+git add README.md
+git commit -m "	"
+git branch -M main
+git remote add origin https://github.com/OEM-SYS/EPICA_FS_M1.git
+git push -u origin main
+
+
+Ir agregando archivos (U4 E5 2:04)
+--------------------------------
+git add archivo.tipo
+git commit -m "termine de programar el archivo.tipo"
+git branch -M main
+git remote add origin https://github.com/OEM-SYS/EPICA_FS_M1.git
+git push -u origin main
+
+gitignore (U4 E5 2:15)
+---------
+Crear en la raiz del sitio un archivo    	.gitignore
+colocar los siguientes renglones dentro para que no suba al repositorio los modulos de node por ejemplo
+	node_nodemodules
+	/node_nodemodules
+README.md (U4 E5 2:14)
+---------
+Crear en la raiz del sitio un archivo		README.md
+debe contener informacion acerca de:	
+    Qué hace el proyecto.
+    Por qué el proyecto es útil.
+    Cómo pueden comenzar los usuarios con el proyecto.
+    Dónde pueden recibir ayuda los usuarios con tu proyecto
+    Quién mantiene y contribuye con el proyecto.
+
+
+
+NPM instalador de modulos (U4 E5 2:12)
+=========================
+cuando un proyecto no tiene los modulos es decir no se encuentra disponible la carpeta node_modules
+correr en la terminal 		npm install
+para que node lea el archivo general de node modules  package.json y reinstale todos los modulos (de la version correspondiente)
+con los archivos que se necesitan para que el proyecto funcione.
+
+HELMET(content security policy) (U4 E5 2:05)
+============================================
+instalacion desde la terminal:						npm i helmet
+importacion del modulo helmet						import helmet from 'helmet';
+agregar en el programa principal en la seccion de middlewares		objetoTipoExpress.use(helmet({contentSecurityPolicy:false}));
+
+MORGAN (ver del lado del servidor las peticiones) (U4 E5 2:05)
+==============================================================
+QUE ES?		https://barcelonageeks.com/que-es-morgan-en-node-js/
+instalacion desde la terminal:						npm i morgan
+importacion del modulo morgan						import morgan from 'morgan';
+agregar en el programa principal en la seccion de middlewares		objetoTipoExpress.use(morgan('dev'));u
+uso: en la terminal una tarea.http se veria al enviar una solicitud	GET /api/task 200 29.468 ms - 758
+
+
