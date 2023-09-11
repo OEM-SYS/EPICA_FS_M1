@@ -48,6 +48,7 @@ Crear en la raiz del sitio un archivo    	.gitignore
 colocar los siguientes renglones dentro para que no suba al repositorio los modulos de node por ejemplo
 	node_nodemodules
 	/node_nodemodules
+
 README.md (U4 E5 2:14)
 ---------
 Crear en la raiz del sitio un archivo		README.md
@@ -72,6 +73,9 @@ HELMET(content security policy) (U4 E5 2:05)
 instalacion desde la terminal:						npm i helmet
 importacion del modulo helmet						import helmet from 'helmet';
 agregar en el programa principal en la seccion de middlewares		objetoTipoExpress.use(helmet({contentSecurityPolicy:false}));
+https://expressjs.com/es/advanced/best-practice-security.html#utilizar-helmet
+https://diegooo.com/asegurar-servidor-en-node-js-y-express-5-pasos/
+
 
 MORGAN (ver del lado del servidor las peticiones) (U4 E5 2:05)
 ==============================================================
@@ -81,4 +85,15 @@ importacion del modulo morgan						import morgan from 'morgan';
 agregar en el programa principal en la seccion de middlewares		objetoTipoExpress.use(morgan('dev'));u
 uso: en la terminal una tarea.http se veria al enviar una solicitud	GET /api/task 200 29.468 ms - 758
 
+VARIABLES DE ENTORNO
+====================
+declarar alli __filename   __dirname   etc
+https://www.victorvr.com/tutorial/variables-de-entorno-con-nodejs
 
+MIDDLEWARE
+==========
+Los middlewares son códigos que se ejecutan antes de que una petición HTTP llegue al manejador de rutas 
+o antes de que un cliente reciba una respuesta, lo que da al framework la capacidad de ejecutar un 
+script típico antes o después de la petición de un cliente
+https://www.turing.com/kb/building-middleware-for-node-js
+https://kinsta.com/es/base-de-conocimiento/que-es-express/

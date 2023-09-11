@@ -1,0 +1,32 @@
+{
+  "name": "packservidor",
+  "version": "1.0.0",
+  "description": "EPICA Proyecto Final Integrador Modulo 1",
+  "main": "aplicacion.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon aplicacion.js",
+    "test": "echo \"Error: TEST NO ESTA DISPONIBLE\" && exit 1"
+  },
+  "keywords": [
+    "EPICA",
+    "PROYECTO",
+    "FINAL",
+    "INTEGRADOR",
+    "MODULO",
+    "1"
+  ],
+  "author": "Eduardo Marcelo Olivares",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.6.1",
+    "sequelize": "^6.33.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
