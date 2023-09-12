@@ -42,7 +42,7 @@ import morgan from 'morgan';//npm install morgan
 import helmet from 'helmet';//npm install helmet
 import { fileURLToPath } from 'node:url';//ya existe es libreria de node
 import { tareaEnrutador } from './src/rutas/tarea.rutas.js';
-
+//import { startDb } from './src/config/database.js'; ############# no olvidar
 
 
 const nombreArchivo = fileURLToPath(import.meta.url);
@@ -62,11 +62,18 @@ miaplicacion.use(helmet({
     contentSecurityPolicy: false
 }));// para evitar problemas con urls externas permitir todas las url(false), sino habria que personalizar una por una
 
+
+
+//miaplicacion.use(express.static(path.join(nombreDirectorio, "src", "public")));  ############# no olvidar
+
+//miaplicacion.set('views', path.join(nombreDirectorio, "src", "views"));  ############# no olvidar
+//miaplicacion.set('view engine', 'ejs');  ############# no olvidar
+
 const puerto = 3000;
 
 miaplicacion.use('/', tareaEnrutador);
 
 miaplicacion.listen(puerto, () => {
     console.log(`Servidor escuchando en http://localhost:${puerto}`);
-
+   // startDb();  ############# no olvidar
 });
