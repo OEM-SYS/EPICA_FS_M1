@@ -42,7 +42,7 @@ import morgan from 'morgan';//npm install morgan
 import helmet from 'helmet';//npm install helmet
 import { fileURLToPath } from 'node:url';//ya existe es libreria de node
 import { tareaEnrutador } from './src/rutas/tarea.rutas.js';
-//import { startDb } from './src/config/database.js'; ############# no olvidar
+import { iniciarBaseDatos } from './src/configuraciones/baseDatos.js';
 
 
 const nombreArchivo = fileURLToPath(import.meta.url);
@@ -74,6 +74,6 @@ const puerto = 3000;
 miaplicacion.use('/', tareaEnrutador);
 
 miaplicacion.listen(puerto, () => {
-    console.log(`Servidor escuchando en http://localhost:${puerto}`);
-   // startDb();  ############# no olvidar
+  console.log(`Servidor escuchando en http://localhost:${puerto}`);
+  iniciarBaseDatos();
 });
