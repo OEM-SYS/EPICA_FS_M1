@@ -1,5 +1,5 @@
 import {Router} from "express";
-//faltan los controladores
+import { controladorCrearTarea, controladorEliminarTarea, controladorModificarTarea, controladorObtenerTareas, controladorVista } from "../controladores/tarea.controladores.js";
 
 const tareaEnrutador= Router();//este es el enrutador utilizado en aplicacion.js
 
