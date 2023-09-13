@@ -16,7 +16,7 @@ export const modeloTarea = mysequelize.define('Posteo', {
     urlImagen: {
         type: DataTypes.STRING,
         allowNull: true
-    },
+    }
 }, {
     timestamps: true
 });//la tabla no hace falta crearla; se creara automaticamente en plural (Posteos) 

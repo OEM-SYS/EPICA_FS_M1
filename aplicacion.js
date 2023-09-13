@@ -64,10 +64,10 @@ miaplicacion.use(helmet({
 
 
 
-//miaplicacion.use(express.static(path.join(nombreDirectorio, "src", "public")));  ############# no olvidar
+//miaplicacion.use(express.static(path.join(nombreDirectorio, "src", "public")));
 
-//miaplicacion.set('views', path.join(nombreDirectorio, "src", "views"));  ############# no olvidar
-//miaplicacion.set('view engine', 'ejs');  ############# no olvidar
+//miaplicacion.set('views', path.join(nombreDirectorio, "src", "views"));
+//miaplicacion.set('view engine', 'ejs'); 
 
 const puerto = 3000;
 

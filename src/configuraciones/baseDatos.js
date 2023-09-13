@@ -21,7 +21,7 @@ export const mysequelize = new Sequelize("epicamodulo1", "epicamodulo1", "epicam
 export const iniciarBaseDatos = async () => {
   try {
     await mysequelize.authenticate();
-    // await mysequelize.sync({ force: true });
+    // await mysequelize.sync({ force: true });//ojo con este comando es para borrar 
     await mysequelize.sync();
     console.log("La conexion fue establecida satisfactoriamente.");
   } 
