@@ -67,7 +67,7 @@ miaplicacion.use(helmet({
 }));// para evitar problemas con urls externas permitir todas las url(false), sino habria que personalizar una por una
 
 
-//express.static  para archivos estaticos a utilizar por el motor de plantillas en dir_raiz/src/publica 
+//express.static  para archivos estaticos(css, js) a utilizar por el motor de plantillas en dir_raiz/src/publica 
 miaplicacion.use(express.static(path.join(nombreDirectorio, "src", "publica")));
 
 //donde buscar las vistas(views)   dir_raiz/src/vistas
