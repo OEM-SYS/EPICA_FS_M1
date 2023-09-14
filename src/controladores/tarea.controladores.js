@@ -36,7 +36,7 @@ export const controladorModificarTarea = async (solicitud, respuesta) => {
     console.log(solicitud.body);//para probar si llega
     const { ID } = solicitud.params;
     try {
-        const tarea = await modeloTarea.findByPk(ID);
+        const tarea = await modeloTarea.findByPk(ID);//busca id por clave primaria (update ... from ... where id='id')
         if (!tarea) {
             return respuesta.status(404).json({
                 message: 'Tarea no encontrada'
@@ -62,7 +62,7 @@ export const controladorEliminarTarea = async (solicitud, respuesta) => {
             where: {
                 ID: ID
             }
-        });
+        });//ellimina cuando la id es igua a la id (clausula delete ... from ... where id='id')
         if (!tareaEliminada) {
             return respuesta.status(404).json({
                 message: 'Tarea no encontrada'

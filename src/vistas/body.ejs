@@ -1,21 +1,35 @@
 <%- include('parciales/header') -%>
 
+<div class="d-flex align-content-center border-success" style="border-style: ridge; margin: 1em;">
+    <div>
+        <% registros.forEach(unRegistro => { %>
+        <!-- Horizontal desde https://getbootstrap.com/docs/4.3/components/card/-->
+        <div class="card mb-3" style="max-width: 1024px;">
+            <div class="row no-gutters">
+            <div class="col-md-4">
+                <img src="<%= unRegistro.urlImagen %>" class="card-img" alt="...">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                <h5 class="card-title"><%= unRegistro.titulo %></h5>
+                <p class="card-text"><%= unRegistro.contenido %></p>
+                </div>
+                <div class="card-footer bg-transparent border-success">
+                    <small class="text-muted">
+                        Creado el <%= new Date(unRegistro.createdAt).toLocaleDateString() %>
+                    </small>
+                </div>
+            </div>
+            </div>
+        </div>
+        <% }) %>
+    </div>
+    <div>agregar</div>
+</div>
 
-<h3>esta es la primer linea del body.ejs y trae un valor desde el controlador </h3>
-
-
-<% registros.forEach(unRegistro => { %>
-    <ul>
-        <li><%= unRegistro.id %></li>
-        <li><%= unRegistro.titulo %></li>
-        <li><%= unRegistro.contenido %></li>
-        <li><%= unRegistro.urlImagen %></li>
-        <li><%= unRegistro.createdAt %></li>
-    </ul>
-
-<% }) %>
-<!-- Horizontal desde https://getbootstrap.com/docs/4.3/components/card/-->
-<div class="card mb-3" style="max-width: 540px;">
+  <!-- Horizontal desde https://getbootstrap.com/docs/4.3/components/card/-->
+<!--
+  <div class="card mb-3" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
         <img src="..." class="card-img" alt="...">
@@ -29,8 +43,11 @@
       </div>
     </div>
   </div>
+-->
+
 
   <!-- Kitchen sink desde https://getbootstrap.com/docs/4.3/components/card/-->
+<!--
   <div class="card" style="width: 18rem;">
     <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
@@ -47,6 +64,8 @@
       <a href="#" class="card-link">Another link</a>
     </div>
   </div>
+-->
+
 
 
 <%- include("parciales/footer") -%>
