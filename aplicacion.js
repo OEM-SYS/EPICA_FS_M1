@@ -33,21 +33,25 @@ en package.json aparece como tal
 
   "type": "module",
   utiliazado para usar ecma script module
+
+  ejs
+  ====
+  //instalar con npm :npm install ejs
   */
 
 import express from 'express';//npm install express
-import path from 'node:path';//ya existe es libreria de node
 import cors from 'cors';// npm install cors
 import morgan from 'morgan';//npm install morgan
 import helmet from 'helmet';//npm install helmet
-import { fileURLToPath } from 'node:url';//ya existe es libreria de node
 import { tareaEnrutador } from './src/rutas/tarea.rutas.js';
 import { iniciarBaseDatos } from './src/configuraciones/baseDatos.js';
+import path from 'node:path';//ya existe es libreria de node para utilizar ejs
+import { fileURLToPath } from 'node:url';//ya existe es libreria de node para utilizar ejs
 
-
-const nombreArchivo = fileURLToPath(import.meta.url);
-const nombreDirectorio = path.dirname(nombreArchivo);
-console.log(`directorio del proyecto: ${nombreDirectorio}`); //###############probar variables de entorno
+const nombreArchivo = fileURLToPath(import.meta.url);//traemos el nombre de este archivo (aplicacion.js)
+const nombreDirectorio = path.dirname(nombreArchivo);// traemos la ruta de la carpeta que contiene este archivo (aplicacion.js)
+console.log(`url del archivo de inicio (aplicacion.js): ${nombreDirectorio}`);
+console.log(`directorio del proyecto: ${nombreDirectorio}`);
 
 const miaplicacion = express();
 
@@ -63,17 +67,19 @@ miaplicacion.use(helmet({
 }));// para evitar problemas con urls externas permitir todas las url(false), sino habria que personalizar una por una
 
 
+//express.static  para archivos estaticos a utilizar por el motor de plantillas en dir_raiz/src/publica 
+miaplicacion.use(express.static(path.join(nombreDirectorio, "src", "publica")));
 
-//miaplicacion.use(express.static(path.join(nombreDirectorio, "src", "public")));
-
-//miaplicacion.set('views', path.join(nombreDirectorio, "src", "views"));
-//miaplicacion.set('view engine', 'ejs'); 
+//donde buscar las vistas(views)   dir_raiz/src/vistas
+miaplicacion.set('views', path.join(nombreDirectorio, "src", "vistas"));//si hubieren mas carpetas se colocarian mas parametro "src", "otra", "carpeta","vistas"
+miaplicacion.set('view engine', 'ejs'); //motor de plantilla a utilizar (ejs)
 
 const puerto = 3000;
 
 miaplicacion.use('/', tareaEnrutador);
 
 miaplicacion.listen(puerto, () => {
-  console.log(`Servidor escuchando en http://localhost:${puerto}`);
+  //console.log(`Servidor escuchando en http://localhost:${puerto}`);
+  console.log(`Servidor escuchando en http://localhost:${puerto}/tareas`);
   iniciarBaseDatos();
 });

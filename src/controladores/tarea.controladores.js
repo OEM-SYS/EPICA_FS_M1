@@ -1,4 +1,5 @@
 //importamos modeloTarea que contiene los tipos de datos
+import { body } from "express-validator";
 import { modeloTarea } from "../modelos/tareas.js";
 
 //controlador para obtener todas las tareas
@@ -82,8 +83,9 @@ export const controladorEliminarTarea = async (solicitud, respuesta) => {
 // controlador para la vista
 export const controladorVista = async (solicitud, respuesta) => {
     try {
-        const tareas = await modeloTarea.findAll();
-        respuesta.render('tareas.ejs', {tareas});
+        const registros = await modeloTarea.findAll();
+        //console.log(tareas);
+        respuesta.render('body.ejs', {registros});//enviamos los datos
     }
     catch (error) {
         console.error(error)
