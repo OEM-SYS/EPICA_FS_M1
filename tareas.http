@@ -1,0 +1,29 @@
+###Hay que instalar en VisualStudio la extension Rest Client para poder hacer las peticiones HTTP
+### PARA LA VISTA
+GET http://localhost:3000/api/tareas
+
+### PARA OBTENER TAREAS
+GET http://localhost:3000/api/tareas
+
+### PARA CREAR TAREA
+POST http://localhost:3000/api/tareas
+Content-Type: application/json
+
+{
+    "titulo": "Nebulosa del Cangrejo",
+    "contenido": "La nebulosa del Cangrejo (también llamada M1, NGC 1952, Taurus A y Taurus X-1) es un resto de supernova de tipo plerión.",
+    "urlImagen": "https://revista.iaa.es/sites/default/files/cangrejo2.jpg"
+}
+
+### PARA MODIFICAR TAREA 2 ejemplos
+### url de prueba img/noHayImagen.png
+PUT http://localhost:3000/api/tareas/2
+Content-Type: application/json
+
+{
+    "urlImagen": "https://www.lavanguardia.com/files/image_449_220/uploads/2018/05/30/5fa43b295fd31.jpeg"
+}
+
+
+### PARA ELIMINAR
+DELETE http://localhost:3000/api/tareas/1
